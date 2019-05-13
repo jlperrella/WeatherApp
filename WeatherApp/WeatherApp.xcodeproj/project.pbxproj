@@ -48,7 +48,6 @@
 				328EA0B2A52984CDDE742155 /* Pods-WeatherApp.debug.xcconfig */,
 				AB6B435257F2A34A259338F3 /* Pods-WeatherApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
