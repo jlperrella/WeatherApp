@@ -14,6 +14,7 @@
 		E835C903228239EF00393E98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E835C901228239EF00393E98 /* LaunchScreen.storyboard */; };
 		E8982B4C22823DC2009931D3 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8982B4B22823DC2009931D3 /* WeatherViewController.swift */; };
 		E8982B4F22823E71009931D3 /* ChangeCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8982B4E22823E71009931D3 /* ChangeCityViewController.swift */; };
+		E89D33C9228A1FAF002B3191 /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D33C8228A1FAF002B3191 /* WeatherDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E835C904228239EF00393E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8982B4B22823DC2009931D3 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		E8982B4E22823E71009931D3 /* ChangeCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeCityViewController.swift; sourceTree = "<group>"; };
+		E89D33C8228A1FAF002B3191 /* WeatherDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		E8982B4D22823E00009931D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E89D33C8228A1FAF002B3191 /* WeatherDataModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E89D33C9228A1FAF002B3191 /* WeatherDataModel.swift in Sources */,
 				E8982B4C22823DC2009931D3 /* WeatherViewController.swift in Sources */,
 				E835C8F9228239ED00393E98 /* AppDelegate.swift in Sources */,
 				E8982B4F22823E71009931D3 /* ChangeCityViewController.swift in Sources */,
@@ -391,6 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV575M35AM;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -410,6 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LV575M35AM;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

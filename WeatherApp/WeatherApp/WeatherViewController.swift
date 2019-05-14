@@ -14,10 +14,11 @@ import SwiftyJSON
 class WeatherViewController: UIViewController, CLLocationManagerDelegate {
   
   // API CREDS
-  let WEATHER_URL = ""
+  let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
   let APP_ID = ""
   
   let locationManager = CLLocationManager()
+  let weatherDataModel = WeatherDataModel()
   
     
   @IBOutlet weak var tempLabel: UILabel!
@@ -41,11 +42,11 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
       response in
       if response.result.isSuccess{
-        print("Success!")
-        
+        print("Weather Data Recieved")
         let weatherJSON : JSON = JSON(response.result.value!)
         
         print(weatherJSON)
+        self.updateWeatherData(json: weatherJSON)
         
       } else {
         print("Error \(String(describing: response.result.error))")
@@ -54,6 +55,24 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
     }
     
   }
+  
+  // MARK: - Parse JSON
+  
+  func updateWeatherData(json : JSON){
+    
+    if let tempResult = json["main"]["temp"].double{
+    weatherDataModel.temperature = Int(tempResult - 273.15)
+    weatherDataModel.city = json["name"].stringValue
+    weatherDataModel.condition = json["weather"][0]["id"].intValue
+    weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
+      
+    updateUIWithWeatherData()
+      
+    } else{
+      cityLabel.text = "weather unavailable"
+    }
+  }
+    
   
   
   
@@ -66,6 +85,16 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+  
+  
+  // MARK: - UI
+  
+  func updateUIWithWeatherData(){
+    cityLabel.text = weatherDataModel.city
+    tempLabel.text = String(weatherDataModel.temperature)
+    weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
+  }
+  
   
   // MARK: - Location Manager Delegate Methods
   

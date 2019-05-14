@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,25 +15,21 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="B92-EH-OTE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTi-zU-IeY">
-                                <rect key="frame" x="0.0" y="277" width="375" height="461"/>
+                                <rect key="frame" x="0.0" y="361" width="414" height="461"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmK-J1-suM">
-                                        <rect key="frame" x="215" y="0.0" width="152" height="118"/>
+                                        <rect key="frame" x="254" y="0.0" width="152" height="118"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="100"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zgA-E1-oRu">
-                                        <rect key="frame" x="47" y="126" width="281" height="194"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSu-kX-JhA">
                                         <rect key="frame" x="16" y="405" width="154" height="48"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
@@ -41,6 +37,13 @@
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zgA-E1-oRu">
+                                        <rect key="frame" x="107" y="143" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="A64-vq-MnA"/>
+                                            <constraint firstAttribute="height" constant="200" id="XvM-0B-w2d"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="461" id="0aW-lz-bMH"/>
@@ -48,10 +51,12 @@
                                     <constraint firstItem="dmK-J1-suM" firstAttribute="top" secondItem="sTi-zU-IeY" secondAttribute="top" id="TA5-Vb-6S2"/>
                                     <constraint firstAttribute="bottom" secondItem="HSu-kX-JhA" secondAttribute="bottom" constant="8" id="V3r-Vj-Ec8"/>
                                     <constraint firstAttribute="trailing" secondItem="dmK-J1-suM" secondAttribute="trailing" constant="8" id="cpD-UJ-abu"/>
+                                    <constraint firstItem="zgA-E1-oRu" firstAttribute="centerX" secondItem="sTi-zU-IeY" secondAttribute="centerX" id="f7c-HO-h0T"/>
+                                    <constraint firstItem="zgA-E1-oRu" firstAttribute="top" secondItem="dmK-J1-suM" secondAttribute="bottom" constant="25" id="gSs-hY-jYV"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blv-Pr-Plg">
-                                <rect key="frame" x="309" y="44" width="50" height="50"/>
+                                <rect key="frame" x="348" y="44" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FdK-vV-IqH"/>
                                     <constraint firstAttribute="width" constant="50" id="fOZ-JZ-ah8"/>
@@ -91,17 +96,17 @@
             <objects>
                 <viewController id="mO1-dE-wec" customClass="ChangeCityViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0AH-VC-3YN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cityBackground" translatesAutoresizingMaskIntoConstraints="NO" id="dUC-5u-6kq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IX9-3k-8Y6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="264"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Oj-qf-23W">
-                                        <rect key="frame" x="103.66666666666669" y="187" width="168" height="47"/>
+                                        <rect key="frame" x="123" y="187" width="168" height="47"/>
                                         <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="0.25350492294520549" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                         <state key="normal" title="Get Weather">
@@ -112,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rbG-Kr-w69">
-                                        <rect key="frame" x="92" y="133" width="191" height="30"/>
+                                        <rect key="frame" x="111.5" y="133" width="191" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="191" id="5b8-ie-ATa"/>
                                         </constraints>
