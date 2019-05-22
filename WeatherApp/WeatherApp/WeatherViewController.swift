@@ -36,15 +36,6 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
   }
   
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "changeCityName"{
-      let destinationVC = segue.destination as! ChangeCityViewController
-      destinationVC.delegate = self
-    }
-    
-  }
-  
-  
   //MARK: - Networking
   
   func getWeatherData(url: String, parameters: [String: String]){
@@ -52,9 +43,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
       response in
       if response.result.isSuccess{
-        print("Weather Data Recieved")
         let weatherJSON : JSON = JSON(response.result.value!)
-        
         print(weatherJSON)
         self.updateWeatherData(json: weatherJSON)
         
@@ -74,6 +63,7 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
     weatherDataModel.temperature = Int(tempResult - 273.15)
     weatherDataModel.city = json["name"].stringValue
     weatherDataModel.condition = json["weather"][0]["id"].intValue
+    weatherDataModel.country = json["sys"]["country"].stringValue
     weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(condition: weatherDataModel.condition)
     updateUIWithWeatherData()
       
@@ -83,21 +73,21 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
   }
     
   
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-  
+    // MARK: - Navigation
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if segue.identifier == "changeCityName"{
+     let destinationVC = segue.destination as! ChangeCityViewController
+     destinationVC.delegate = self
+     }
+   }
+
   
   // MARK: - UI
   
   func updateUIWithWeatherData(){
-    cityLabel.text = weatherDataModel.city
+    cityLabel.text = "\(weatherDataModel.city), \(weatherDataModel.country)"
     tempLabel.text = String(weatherDataModel.temperature) + "°"
     weatherIcon.image = UIImage(named: weatherDataModel.weatherIconName)
   }
@@ -106,7 +96,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
   // MARK: - Change City Delegate
   
   func userEnteredANewCityName(city: String) {
-    print(city + " SELECTED")
+    let params : [String : String] = ["q" : city, "appid" : APP_ID]
+    getWeatherData(url: WEATHER_URL, parameters: params)
   }
   
   
