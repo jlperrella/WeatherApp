@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ChangeCityViewController: UIViewController {
+protocol ChangeCityDelegate {
+  func userEnteredANewCityName (city : String)
+}
 
+class ChangeCityViewController: UIViewController {
+  
+  var delegate : ChangeCityDelegate?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,9 +25,14 @@ class ChangeCityViewController: UIViewController {
 
   @IBOutlet weak var cityTextField: UITextField!
   
-  @IBAction func getWeatherPressed(_ sender: UIButton) {
+  @IBAction func getWeatherPressed(_ sender: AnyObject) {
     
+    let cityName = cityTextField.text!
     
+    delegate?.userEnteredANewCityName(city: cityName)
+    
+    self.dismiss(animated: true, completion: nil)
+  
   }
   /*
     // MARK: - Navigation

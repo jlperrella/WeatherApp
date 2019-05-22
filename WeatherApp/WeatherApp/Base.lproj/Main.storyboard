@@ -63,7 +63,7 @@
                                 </constraints>
                                 <state key="normal" title="Change CIty Button" image="switch"/>
                                 <connections>
-                                    <segue destination="mO1-dE-wec" kind="presentation" id="u9P-0l-vwR"/>
+                                    <segue destination="mO1-dE-wec" kind="presentation" identifier="changeCityName" id="u9P-0l-vwR"/>
                                 </connections>
                             </button>
                         </subviews>
