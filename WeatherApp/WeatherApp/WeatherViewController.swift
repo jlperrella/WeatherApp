@@ -15,8 +15,8 @@ class WeatherViewController: UIViewController, CLLocationManagerDelegate, Change
   
   
   // API CREDS
-  let WEATHER_URL = ""
-  let APP_ID = ""
+  let WEATHER_URL = Api.init().weatherurl
+  let APP_ID = Api.init().appid
   
   let locationManager = CLLocationManager()
   let weatherDataModel = WeatherDataModel()
